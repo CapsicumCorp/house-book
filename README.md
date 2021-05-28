@@ -1,23 +1,16 @@
 <h1 align="center">
-  IC Address Book App
+  IC House Book App
 </h1>
 
-<h2>Now with a blog post tutorial!</h2>
-<a href="https://kyle-peacock.com/blog/dfinity/static-site-generators-ic">https://kyle-peacock.com/blog/dfinity/static-site-generators-ic</a>
+<h2>Quick and Dirty POC using a fork of Internet Computer Address Book Example</h2>
 
 ---
 
-This app is a sample application meant to illustrate how to start up a new web app on the IC.
-The project was bootstrapped using `npm init gatsby`, with the following modifications:
+This app is a sample application as a proof of concept and our familiarisation using the Internet Computer.
 
-- Changing `src/pages/index.js` to be our new app
-- adding `dfx.json` to deploy the application on the IC
+If you arrived here from a Internet search you are probably after the original by
+Kyle Peacock from  https://github.com/krpeacock/ic-vcf-gatsby, there is a link for Kyle's excellent how to at the bottom of this readme.
 
-Then, to add an IC backend,
-
-- Adds `src/backend` with HashMap logic
-- Adds `src/actor.js` to interface with IC
-- adds `gatsby-node` to configure webpack with an alias for `dfx-generated` references
 
 ## Quickstart
 
@@ -36,3 +29,8 @@ run `npm start` to spin up a development server
 Run `npm run build` to compile the frontend app
 
 Run `npm deploy --network=ic` to deploy the app on Sodium
+
+<h3> Link to Kyle's orignal howto</h3>
+<a href="https://kyle-peacock.com/blog/dfinity/static-site-generators-ic">https://kyle-peacock.com/blog/dfinity/static-site-generators-ic</a>
+
+

@@ -108,7 +108,7 @@ const IndexPage = () => {
 
     const card = new vCard();
     const inputs = e.target.querySelectorAll("input");
-    const email = e.target.querySelector('input[name="email"]').value;
+    // const email = e.target.querySelector('input[name="email"]').value;
     inputs.forEach((input) => {
       if (input.name === "photo") return;
       else if (input.name === "n") {
@@ -128,13 +128,14 @@ const IndexPage = () => {
     });
     card.add("photo", btoa(image), { mediatype: "image/gif" });
 
-    actor?.set(email, JSON.stringify(card.toJSON())).then(() => {
+    /* actor?.set(email, JSON.stringify(card.toJSON())).then(() => {
       alert("card uploaded!");
       inputs.forEach((input) => {
         input.value = "";
       });
       setImage("");
-    });
+    }); */
+alert(JSON.stringify(card.toJSON()) );
 
     return false;
   }
@@ -173,10 +174,10 @@ const IndexPage = () => {
 
   return (
     <Main>
-      <title>Contact Book</title>
-      <h1>Internet Computer Address Book</h1>
+      <title>House Book</title>
+      <h1>Internet Computer House Book</h1>
       <section>
-        <h2>Look up a contact by email</h2>
+        <h2>Look up a House by Address</h2>
         <form onSubmit={getCard}>
           <label htmlFor="emailsearch">
             <input type="email" name="emailsearch" id="emailsearch" />
@@ -188,24 +189,36 @@ const IndexPage = () => {
       <ContactCard card={card} />
 
       <form onSubmit={handleSubmit}>
-        <h2>Add a Contact</h2>
+        <h2>Add a House</h2>
         <fieldset>
-          <h3>Personal Information</h3>
-          <label htmlFor="n">
-            Full Name
-            <input type="text" name="n" autoComplete="name" />
+          <h3>House Information</h3>
+          <label htmlFor="lid">
+            Location ID
+            <input required type="text" name="lid" autoComplete="lid" />
           </label>
-          <label htmlFor="org">
-            Organziation
-            <input type="text" name="org" autoComplete="organization" />
+          <label htmlFor="adr">
+            Street Address
+            <input required type="text" name="adr" autoComplete="address" />
           </label>
-          <label htmlFor="title">
+          <label htmlFor="type">
+            Property Type
+            <input type="text" name="type" autoComplete="property_type" />
+          </label>
+            <label htmlFor="title">
             Title
-            <input type="text" name="title" autoComplete="organization-title" />
+            <input type="text" name="title" />
+          </label>
+          <label htmlFor="oc">
+            Owner Claimed
+            <input type="text" name="oc" />
+          </label>
+          <label htmlFor="lt">
+            Listing Type
+            <input  type="text" name="lt" autoComplete="listing" />
           </label>
         </fieldset>
         <fieldset>
-          <h3>Profile photo</h3>
+          <h3>House Photo</h3>
           <label htmlFor="photo">
             Upload an image
             <input
@@ -218,26 +231,11 @@ const IndexPage = () => {
           </label>
           {image ? (
             <ProfilePicture>
-              <img src={image} alt="user-uploaded profile image" />
+              <img src={image} alt="House Image" />
             </ProfilePicture>
           ) : null}
         </fieldset>
-        <fieldset>
-          <h3>Contact</h3>
-          <label htmlFor="tel">
-            Phone number
-            <input type="text" name="tel" />
-          </label>
-          <label htmlFor="adr">
-            Address
-            <input type="text" name="adr" autoComplete="on" />
-          </label>
-          <label htmlFor="email">
-            Email
-            <input required type="email" name="email" autoComplete="email" />
-          </label>
-        </fieldset>
-        <button type="submit">Submit Contact</button>
+        <button type="submit">Submit House</button>
       </form>
     </Main>
   );
